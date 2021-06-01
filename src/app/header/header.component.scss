@@ -1,0 +1,26 @@
+.main-header{
+    background-color: #fff;
+    height: 80px;
+    border-bottom: 1px solid #d4d4d4;
+    img.header-logo {
+        width: 120px;
+        margin: 20px 0px 0px 20px;
+    } 
+    nav{
+        float: right;
+        margin: 30px 20px 0px 0px;
+        cursor: pointer;
+        a{
+            color:#000;
+            text-decoration: none;
+            padding-right: 30px;
+            font-size: 16px;
+            &:hover{
+                color: #101141;
+                text-decoration: underline;
+            }
+        }
+        
+    }
+    
+}

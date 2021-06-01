@@ -1,0 +1,14 @@
+<div class="main-header">
+    <section class="navbar">
+        <a aria-current="page" class="navbar-brand" routerLink="/home">
+            <img class="header-logo" src="../../assets/logo.png" alt="logo">
+        </a>
+        <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
+        <nav>
+            <a routerLink="/rule-creation" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Rules Creation</a>
+            <a routerLink="/reports" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Reports</a>
+            <a routerLink="/master-data-management" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Master Data Management</a>
+            <a  (click)="logOut()" >Logout</a>
+        </nav>
+    </section>
+</div>
