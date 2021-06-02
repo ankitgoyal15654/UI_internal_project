@@ -2,3 +2,37 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-menu-content {
+    width: 280px;
+    .profile-section{
+        border-bottom: 1px solid #d4d4d4;
+        height: 70px;
+    }
+    img{
+        float: left;
+        margin-right: 16px;
+        width: 50px;
+    }
+    .profile-large-logo{
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background-color: #4783a3;
+        color: #fff;
+        line-height: 54px;
+        letter-spacing: 2px;
+        float: left;
+        margin-right: 16px;
+        text-align: center;
+        font-size: 20px;
+        position: relative;
+        bottom: 4px;
+    }
+    .username{
+        font-weight: 500;
+        margin: -12px;
+    }
+    p.userrole {
+        margin: -28px;
+    }
+}

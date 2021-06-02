@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { UserAuthService } from '../services/user-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,31 +10,38 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  form:any = FormGroup;
+  loginForm:any = FormGroup;
   formSubmitAttempt:boolean = false;
+  invalidLogin: boolean = false;
 
-  constructor( private fb: FormBuilder, private router: Router ) { }
+  constructor( private fb: FormBuilder, private router: Router, private userAuthService: UserAuthService) { }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      userName: ['', Validators.required],
-      password: ['', Validators.required]
+    this.loginForm = this.fb.group({
+      username: [ '', Validators.compose([Validators.required,Validators.email])],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
     });
   }
 
-  isFieldInvalid(field: string) {
-    return (
-      (!this.form.get(field).valid && this.form.get(field).touched) ||
-      (this.form.get(field).untouched && this.formSubmitAttempt)
-    );
-  }
+  onSubmit(): void {
+    if (
+      this.loginForm.get('username').value.length &&
+      this.loginForm.get('password').value.length
+    ) {
+      const formValue = this.loginForm.value;
+      console.log(formValue);
 
-  onSubmit() {
-    if (this.form.valid) {
-     console.log('form', this.form.value);
-     this.router.navigate(["home"]);
+      this.userAuthService.login(formValue.username, formValue.password)
+        .subscribe((data) => {
+            console.log('login data', data);
+            this.router.navigate(["home"]);
+            this.invalidLogin = false;
+          },(error) => {
+            console.log(error);
+            this.invalidLogin = true;
+          }
+        );
     }
-    this.formSubmitAttempt = true;
   }
 
 }

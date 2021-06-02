@@ -1,21 +1,25 @@
 <div class="login-page">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <p>Please login to continue</p>
     <div class="underline"></div>
     <div class="login-inner-section">
       <mat-form-field class="full-width-input">
-        <input matInput placeholder="User"  formControlName="userName"   required>
-        <mat-error *ngIf="isFieldInvalid('userName')">
-          Please inform your user name
+        <input matInput placeholder="Username"  formControlName="username"  required>
+        <mat-error *ngIf="!loginForm.get('username').valid">
+          Username is required
         </mat-error>
+
+
       </mat-form-field>
       <mat-form-field class="full-width-input">
         <input matInput type="password" placeholder="Password" formControlName="password"  required>
-        <mat-error *ngIf="isFieldInvalid('userName')">
-          Please inform your password
-        </mat-error>
+        <mat-error *ngIf="loginForm.get('password').hasError('minlength')">
+          The minimum length of Password is
+          {{ loginForm.get('password').errors.minlength.requiredLength }}
+          characters.
+         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Login</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
     </div>
   </form>
 </div>

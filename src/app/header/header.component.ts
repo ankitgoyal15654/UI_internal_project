@@ -2,6 +2,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../services/user-auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   opened: boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userAuthService: UserAuthService) { }
 
   ngOnInit(): void {
     let currentComponent = window.location.href.split('/')[3];
@@ -26,7 +27,8 @@ export class HeaderComponent implements OnInit {
   // }
 
   logOut(){
-    this.router.navigate(["login"]);
+    this.router.navigate(['']);
+    this.userAuthService.logout();
   }
 
 }

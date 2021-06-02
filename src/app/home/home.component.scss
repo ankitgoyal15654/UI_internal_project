@@ -3,7 +3,7 @@
     float: left;
     min-height: 100vh;
     position: relative;
-    background-image: url("../../assets/landing03.png");
+    background-image: url("../../assets/landing.png");
     background-size: cover;
     background-position-y: center;
     .home-menu-option{
@@ -17,16 +17,21 @@
             top: 56%;
             left: 50%;
             transform: translate(-50% , -50%);
+            // top: 56%;
+            // left: 40%;
+            // transform: translate(-35%, -50%);
             li {
                 background-color: #fff;
-                width: auto;
                 color: #000;
                 margin: 10px;
-                padding: 16px 30px;
+                padding: 16px;
                 list-style: none;
-                display: inline-block;
+                // display: inline-block;
                 border-radius: 5px;
                 cursor: pointer;
+                // float: left;
+                // width: 220px;
+                // line-height: 22px;
                 a{
                     cursor: pointer;
                     p{
@@ -40,6 +45,10 @@
                         height: 36px;
                     }
                 }
+            }
+            .menu-options{
+                display: inline-block;
+                width: 120px;
             }
             li:hover {
                 background-color: #101141;
@@ -65,9 +74,24 @@
         .home-menu-option{
             ul{
                 left: 40%;
+                transform: translate(-45%, -50%);
                 li{
                     width:100%;
                 }
+                .menu-options{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// Tab responsive css code 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .landing-page{
+        .home-menu-option{
+            ul{
+                left: 50%;
             }
         }
     }
