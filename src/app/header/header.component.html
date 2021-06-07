@@ -7,17 +7,15 @@
             <a routerLink="/rule-creation" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Rules Creation</a>
             <a routerLink="/reports" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Reports</a>
             <a routerLink="/master-data-management" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Master Data Management</a>
-            <button mat-button [matMenuTriggerFor] = "menu"> <div class="profile-logo">KK</div> 
+            <button mat-button [matMenuTriggerFor] = "menu"> <div class="profile-logo">{{roleUserData?.username.charAt(0)}}</div> 
             </button>
             <mat-menu #menu = "matMenu">
                 <button mat-menu-item class="profile-section">
-                <div class="profile-large-logo">KK</div> 
-                <p class="username">Kundan Kumar </p><p class="userrole">Role : admin </p> </button>
+                <div class="profile-large-logo">{{roleUserData?.username.charAt(0)}}</div> 
+                <p class="username">{{roleUserData?.username}}</p><p class="userrole">Role : {{roleUserData?.role_name}} </p> </button>
                 <button mat-menu-item (click)="logOut()"> Sign out</button>
             </mat-menu>
         </nav>
 
-      
-        
     </section>
 </div>
