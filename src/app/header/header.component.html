@@ -4,9 +4,9 @@
             <img class="header-logo" src="../../assets/logo.png" alt="logo">
         </a>
         <nav>
-            <a routerLink="/rule-creation" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Rules Creation</a>
-            <a routerLink="/reports" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Reports</a>
-            <a routerLink="/master-data-management" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Master Data Management</a>
+            <li><a routerLink="/rule-creation" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Rules Creation</a></li>
+            <li *ngIf="roleUserData?.role_name == 'Admin' || roleUserData?.role_name == 'developer'"><a routerLink="/reports" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Reports</a></li>
+            <li *ngIf="roleUserData?.role_name == 'Admin'"><a routerLink="/master-data-management" *ngIf="currentComponentRoute != 'home'" routerLinkActive="active">Master Data Management</a></li>
             <button mat-button [matMenuTriggerFor] = "menu"> <div class="profile-logo">{{roleUserData?.username.charAt(0)}}</div> 
             </button>
             <mat-menu #menu = "matMenu">
