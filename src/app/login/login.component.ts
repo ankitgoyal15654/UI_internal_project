@@ -39,9 +39,12 @@ export class LoginComponent implements OnInit {
         .subscribe((data) => {
           // console.log('data', data);
           if(data.status == 'success'){
-            // this._snackBar.open('Your login has been successfully', '', {
-            //   duration: 3000
-            // });
+            this._snackBar.open('Your login has been successfully', '', {
+              duration: 3000,
+              verticalPosition: "top",
+              horizontalPosition: "end",
+              panelClass: ["custom-primary-color"]
+            });
             // Start get access role user data
             this.userAuthService.getUserAccessInfo().subscribe((data) => {
                 // console.log('login data', data);
@@ -53,9 +56,12 @@ export class LoginComponent implements OnInit {
             );
             // End get access role user data
           }else{
-            // this._snackBar.open('Usename or password is not correct', '', {
-            //   duration: 3000
-            // });
+            this._snackBar.open('Usename or password is not correct', '', {
+              duration: 3000,
+              verticalPosition: "top",
+              horizontalPosition: "end",
+              panelClass: ["custom-warn-color"]
+            });
           }
             
           },(error) => {
