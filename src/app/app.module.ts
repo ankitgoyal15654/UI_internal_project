@@ -18,7 +18,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginComponent } from './login/login.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MatIconModule } from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     RulesCreationComponent,
     ReportsComponent,
-    MasterDataManagementComponent
+    MasterDataManagementComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,14 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatTableModule,
+    MatDialogModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

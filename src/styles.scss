@@ -38,7 +38,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         margin: -25px;
     }
 }
-
+// Master data component global css
+.search-section {
+    .mat-grid-tile-content {
+        justify-content: flex-start;
+    }
+    .mat-form-field {
+        width: 400px;
+      }
+}
+.add-btn{
+    .mat-grid-tile-content {
+        justify-content: flex-end;
+    }
+}
 
 snack-bar-container.custom-warn-color {
     background-color:#f44336;

@@ -17,32 +17,32 @@ export class UserAuthService {
 
   login(email: string, password: string) {
     const headers = new HttpHeaders({
-      'Content-Type': 'x-www-form-urlencoded',
+      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'put'
+      'Access-Control-Allow-Methods': 'post'
     });
-    return this.http.put<any>(`${environment.API_URL}/dev/authenticate`, {
+    return this.http.post<any>(`${environment.API_URL}/users/login`, {
       'username': email,
       'password': password
     }).pipe(
       map((data) => {
-         // console.log(data);
-        this.storeJwtToken(data.access_Token);
-        this.dataToken = data.access_Token;
+        console.log(data);
+        this.storeJwtToken(data.data.access_Token);
+        this.dataToken = data.data.access_Token;
         return data;
       })
     );
   }
 
   getUserAccessInfo(){
-    return this.http.get<any>(`${environment.ACCESS_ROLE_API_URL}/test/carlo-userinfo-api`, {
+    return this.http.get<any>(`${environment.API_URL}/users/user_info`, {
         headers: {
           'Content-Type': 'application/json',
           "Authorization": this.dataToken
         }
       }).pipe(tap((data) => {
-        // console.log('getUserAccessInfo', data);
-        if(data.status_code == 200){
+        console.log('getUserAccessInfo', data);
+        if(data.statusCode == 200){
           localStorage.setItem("roleUserInfo", JSON.stringify(data.data));
         }
       })

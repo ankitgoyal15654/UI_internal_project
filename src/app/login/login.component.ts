@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
       // console.log(formValue);
       this.userAuthService.login(formValue.username, formValue.password)
         .subscribe((data) => {
-          // console.log('data', data);
-          if(data.status == 'success'){
-            this._snackBar.open('Your login has been successfully', '', {
+          console.log('data', data);
+          if(data.statusCode == 200){
+            this._snackBar.open('Users logged in successfully', '', {
               duration: 3000,
               verticalPosition: "top",
               horizontalPosition: "end",
