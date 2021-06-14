@@ -22,10 +22,12 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { MatIconModule } from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { CreateMasterDataDialogComponent } from './create-master-data-dialog/create-master-data-dialog.component';
+import { EditMasterDataDialogComponent } from './edit-master-data-dialog/edit-master-data-dialog.component';
+import { DeleteMasterDataDialogComponent } from './delete-master-data-dialog/delete-master-data-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { MatSortModule } from '@angular/material/sort';
     RulesCreationComponent,
     ReportsComponent,
     MasterDataManagementComponent,
-    DialogBoxComponent
+    CreateMasterDataDialogComponent,
+    EditMasterDataDialogComponent,
+    DeleteMasterDataDialogComponent
   ],
   imports: [
     BrowserModule,
