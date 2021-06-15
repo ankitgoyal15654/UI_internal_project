@@ -2,16 +2,16 @@
     <h2 mat-dialog-title>Edit data in Aetna EGWP Plans</h2>
     <div mat-dialog-content>
         <mat-form-field class="full-width">
-            <mat-label>Enter CUID</mat-label>
-            <input matInput>
+            <mat-label>CUID</mat-label>
+            <input matInput class="form-control" [(ngModel)]="data.cuid">
         </mat-form-field>
         <mat-form-field class="full-width">
-            <mat-label>Enter Carrier</mat-label>
-            <input matInput>
+            <mat-label>Carrier</mat-label>
+            <input matInput class="form-control" [(ngModel)]="data.carrier">
         </mat-form-field>
         <mat-form-field class="full-width">
-            <mat-label>Enter Client Name</mat-label>
-            <input matInput>
+            <mat-label>Client Name</mat-label>
+            <input matInput class="form-control" [(ngModel)]="data.clientName">
         </mat-form-field>
     </div>
     <div mat-dialog-actions class="dialog-actions-wrap">

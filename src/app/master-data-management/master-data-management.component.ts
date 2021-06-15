@@ -68,9 +68,10 @@ export class MasterDataManagementComponent implements OnInit {
   }
 
   // Open dialog edit master data function
-  openEditMasterDataDialog(): void {
+  openEditMasterDataDialog(cuid:string, carrier:string, clientName:string): void {
     const dialogRef = this.dialog.open(EditMasterDataDialogComponent, {
       width: '560px',
+      data: {cuid:cuid, carrier:carrier, clientName:clientName}
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-master-data-dialog',
@@ -8,7 +8,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 })
 export class EditMasterDataDialogComponent implements OnInit {
 
-  constructor(public dialog: MatDialog,  public dialogRef: MatDialogRef<EditMasterDataDialogComponent>) { }
+  constructor(public dialog: MatDialog,  public dialogRef: MatDialogRef<EditMasterDataDialogComponent>,  @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
   ngOnInit(): void {
   }
